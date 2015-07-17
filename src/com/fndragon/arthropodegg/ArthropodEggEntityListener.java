@@ -10,9 +10,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.enchantments.Enchantment;
 
+/**
+ * @author Randy
+ * @since 1.0
+ * 
+ * All the event listeners related to ArthropodEgg plugin. Handles
+ * each case that is currently configured for handling.
+ */
 public class ArthropodEggEntityListener implements Listener {
 
-	public ArthropodEgg plugin;
+	private ArthropodEgg plugin;
 	
 	public ArthropodEggEntityListener( ArthropodEgg instance ) {
 		plugin = instance;

@@ -1,6 +1,7 @@
-name: ArthropodEgg
+name: ${project.name}
 main: com.fndragon.arthropodegg.ArthropodEgg
-version: 1.3
+author: fndragon
+version: ${project.version}
 commands:
    arthropodegg:
       description: This is used to interact with the arthropodegg plugin
