@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.fndragon.arthropodegg;
 
 import java.util.List;
@@ -11,8 +8,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.fndragon.arthropodegg.ArthropodEggEntityListener;
 
 /**
- * @author Randy
+ * @author Randy 
+ * @since 1.0
  *
+ * Command and control module for ArthropodEgg, handles console interactions
+ * for the plugin.
  */
 public class ArthropodEgg extends JavaPlugin {
 
@@ -36,11 +36,9 @@ public class ArthropodEgg extends JavaPlugin {
 			// Check for no arguments, return false
 			if( args.length == 0 ) {
 				return false;
-			}
-			if( args[0].equalsIgnoreCase("version")) {
+			} else if( args[0].equalsIgnoreCase("version")) {
 				sender.sendMessage( this.getDescription().getFullName() ); // automatically appends version
-			}
-			if( args[0].equalsIgnoreCase("debug")) {
+			} else if( args[0].equalsIgnoreCase("debug")) {
 				if(args.length < 2) {
 					return false;
 				}
@@ -51,13 +49,11 @@ public class ArthropodEgg extends JavaPlugin {
 				} else {
 					sender.sendMessage("ArthropodEgg debug disabled");
 				}
-			}
-			if( args[0].equalsIgnoreCase("list")) {
+			} else if( args[0].equalsIgnoreCase("list")) {
 				for( Short id : this.getConfig().getShortList("eggEntityIDList")) {
 					sender.sendMessage( "ID #" + id + ": " + org.bukkit.entity.EntityType.fromId( (int) id).getName());
 				}
-			}
-			if( args[0].equalsIgnoreCase("add")) {
+			} else if( args[0].equalsIgnoreCase("add")) {
 				if( args.length < 2) {
 					return false;
 				}
@@ -71,8 +67,7 @@ public class ArthropodEgg extends JavaPlugin {
 					this.getConfig().set("eggEntityIDList", idList);
 					sender.sendMessage( "ID #" +idToAdd+ ": " + org.bukkit.entity.EntityType.fromId((int)idToAdd).getName() + " added");
 				}
-			}
-			if( args[0].equalsIgnoreCase("remove")) {
+			} else if( args[0].equalsIgnoreCase("remove")) {
 				if( args.length < 2) {
 					return false;
 				}
@@ -86,21 +81,17 @@ public class ArthropodEgg extends JavaPlugin {
 					this.getConfig().set("eggEntityIDList", idList);
 					sender.sendMessage( "ID #" +idToDel+ ": " + org.bukkit.entity.EntityType.fromId((int)idToDel).getName() + " removed");
 				}
-			}
-			if( args[0].equalsIgnoreCase("reset")) {
+			} else if( args[0].equalsIgnoreCase("reset")) {
 				saveResource("config.yml", true);
 				this.reloadConfig();
 				sender.sendMessage("Reset configuration");
-			}
-			if( args[0].equalsIgnoreCase("reload")) {
+			} else if( args[0].equalsIgnoreCase("reload")) {
 				this.reloadConfig();
 				sender.sendMessage("Reloaded configuration");
-			}
-			if( args[0].equalsIgnoreCase("save")) {
+			} else if( args[0].equalsIgnoreCase("save")) {
 				this.saveConfig();
 				sender.sendMessage("Saved configuration");
-			}
-			if( args[0].equalsIgnoreCase("arthropodrate")) {
+			} else if( args[0].equalsIgnoreCase("arthropodrate")) {
 				if( args.length < 2) {
 					return false;
 				}
@@ -114,8 +105,7 @@ public class ArthropodEgg extends JavaPlugin {
 				sender.sendMessage("Set each level of Bane of Arthropods to " + droprate * 100 + "%");
 				sender.sendMessage("Without looting, this gives a maximum of " + droprate * 5 * 100 + "%");
 				sender.sendMessage("With looting, this gives a maximum of " + (droprate * 5 * 100 + this.getConfig().getDouble( "eggLootingPercentage" ) * 3 * 100) + "%");
-			}
-			if( args[0].equalsIgnoreCase("lootingrate")) {
+			} else if( args[0].equalsIgnoreCase("lootingrate")) {
 				if( args.length < 2) {
 					return false;
 				}
@@ -124,8 +114,7 @@ public class ArthropodEgg extends JavaPlugin {
 				sender.sendMessage("Set each level of Looting to " + lootingrate * 100 + "%");
 				sender.sendMessage("With looting, this gives a maximum of " + (lootingrate * 3 * 100 + this.getConfig().getDouble( "eggArthropodPercentage" ) * 5 * 100) + "%");
 			
-			}
-			if( args[0].equalsIgnoreCase("removedrops")) {
+			} else if( args[0].equalsIgnoreCase("removedrops")) {
 				if( args.length < 2) {
 					return false;
 				}
@@ -137,6 +126,8 @@ public class ArthropodEgg extends JavaPlugin {
 					sender.sendMessage("All xp and mob drops preserved if egg is generated");
 				}
 					
+			} else {
+				sender.sendMessage("Command not recognized.");
 			}
 			return true;
 		}
