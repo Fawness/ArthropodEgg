@@ -33,17 +33,13 @@
   <dependencies>
     	<dependency>
 		<groupId>org.spigotmc</groupId>
-		<artifactId>spigot-api</artifactId>
-		<version>1.10-R0.1-SNAPSHOT</version>
+		<artifactId>Spigot</artifactId>
+		<version>1.10</version>
 		<scope>provided</scope>
 	</dependency>
   </dependencies>
   
   <repositories>
-    <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
-    </repository>
     <repository>
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
