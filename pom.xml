@@ -6,7 +6,7 @@
   <groupId>com.fndragon</groupId>
   <artifactId>ArthropodEgg</artifactId>
   <packaging>jar</packaging>
-  <version>1.4.0</version>
+  <version>1.4.1</version>
   <name>ArthropodEgg</name>
   <url>https://github.com/Civcraft/ArthropodEgg</url>
   
@@ -33,17 +33,13 @@
   <dependencies>
     	<dependency>
 		<groupId>org.spigotmc</groupId>
-		<artifactId>spigot-api</artifactId>
-		<version>1.9.2-R0.1-SNAPSHOT</version>
+		<artifactId>Spigot</artifactId>
+		<version>1.10</version>
 		<scope>provided</scope>
 	</dependency>
   </dependencies>
   
   <repositories>
-    <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
-    </repository>
     <repository>
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
