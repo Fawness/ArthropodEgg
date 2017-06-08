@@ -3,9 +3,7 @@ package com.fndragon.arthropodegg;
 import java.util.Map;
 import java.util.logging.Level;
 
-import net.minecraft.server.v1_11_R1.NBTTagCompound;
-
-import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Player;
@@ -13,7 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.SpawnEgg;
+import org.bukkit.inventory.meta.SpawnEggMeta;
 
 /**
  * @author Randy
@@ -81,25 +79,10 @@ public class ArthropodEggEntityListener implements Listener {
 		// Check if egg should be spawned
 		if( randomNum < targetPercentage )
 		{
-			// Figure out the right item type to drop.
-			SpawnEgg egg = new SpawnEgg(event.getEntityType());
-			ItemStack item = egg.toItemStack(1);
-			net.minecraft.server.v1_11_R1.ItemStack s = CraftItemStack.asNMSCopy(item);
-			if (s == null) {
-				plugin.getLogger().log(Level.SEVERE, "Attempted to create map conform copy of {0}"
-						+ ", but couldn't because this item can't be held in inventories since Minecraft 1.8",
-						item.toString());
-				return;
-			}
-			NBTTagCompound nbt = s.getTag();
-			if (nbt == null) {
-				nbt = new NBTTagCompound();
-			}
-			NBTTagCompound eID = new NBTTagCompound();
-			eID.setString("id", egg.getSpawnedType().getName());
-			nbt.set("EntityTag", eID);
-			s.setTag(nbt);
-			item = CraftItemStack.asBukkitCopy(s);
+			ItemStack item = new ItemStack(Material.MONSTER_EGG, 1);
+			SpawnEggMeta spawnMeta = (SpawnEggMeta) item.getItemMeta();
+			spawnMeta.setSpawnedType(event.getEntityType());
+			item.setItemMeta(spawnMeta);
 
 			if( plugin.getConfig().getBoolean("eggRemoveDrops")) {
 				event.getDrops().clear();
