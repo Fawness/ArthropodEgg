@@ -3,19 +3,17 @@ package com.fndragon.arthropodegg;
 import java.util.Map;
 import java.util.logging.Level;
 
-import net.minecraft.server.v1_10_R1.NBTTagCompound;
-import net.minecraft.server.v1_10_R1.NBTTagString;
+import net.minecraft.server.v1_11_R1.NBTTagCompound;
 
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.EventHandler;
+import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.SpawnEgg;
-import org.bukkit.enchantments.Enchantment;
 
 /**
  * @author Randy
@@ -86,7 +84,7 @@ public class ArthropodEggEntityListener implements Listener {
 			// Figure out the right item type to drop.
 			SpawnEgg egg = new SpawnEgg(event.getEntityType());
 			ItemStack item = egg.toItemStack(1);
-			net.minecraft.server.v1_10_R1.ItemStack s = CraftItemStack.asNMSCopy(item);
+			net.minecraft.server.v1_11_R1.ItemStack s = CraftItemStack.asNMSCopy(item);
 			if (s == null) {
 				plugin.getLogger().log(Level.SEVERE, "Attempted to create map conform copy of {0}"
 						+ ", but couldn't because this item can't be held in inventories since Minecraft 1.8",

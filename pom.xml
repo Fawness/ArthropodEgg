@@ -6,7 +6,7 @@
   <groupId>com.fndragon</groupId>
   <artifactId>ArthropodEgg</artifactId>
   <packaging>jar</packaging>
-  <version>1.4.1</version>
+  <version>1.5.0</version>
   <name>ArthropodEgg</name>
   <url>https://github.com/Civcraft/ArthropodEgg</url>
   
@@ -31,11 +31,11 @@
   </build>
 
   <dependencies>
-    	<dependency>
-		<groupId>org.spigotmc</groupId>
-		<artifactId>Spigot</artifactId>
-		<version>1.10</version>
-		<scope>provided</scope>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>Spigot</artifactId>
+      <version>1.11-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
 	</dependency>
   </dependencies>
   
