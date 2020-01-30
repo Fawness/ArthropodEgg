@@ -79,7 +79,7 @@ public class ArthropodEggEntityListener implements Listener {
 		// Check if egg should be spawned
 		if( randomNum < targetPercentage )
 		{
-			ItemStack item = new ItemStack(Material.MONSTER_EGG, 1);
+			ItemStack item = new ItemStack(Material.INFESTED_STONE, 1);
 			SpawnEggMeta spawnMeta = (SpawnEggMeta) item.getItemMeta();
 			spawnMeta.setSpawnedType(event.getEntityType());
 			item.setItemMeta(spawnMeta);
